@@ -3,7 +3,7 @@
     <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
     <script src='jquery-1.11.1.min.js'></script>
     <script type="text/javascript" src="select.js"></script>
-
+    <script type="text/javascript" src="load.js"></script>
 
 
 	<style>
@@ -100,23 +100,5 @@
 
 
 
-	<script type="text/javascript">
-		var baseTest=new Firebase('https://nodelearn.firebaseio.com/')
-		time=Date();
-		//$(document).ready(baseTest.push("login time: " +time ))
-	</script>
-
-
-
-    <script>
-		 var successPush=function(error) {
-		  if (error) {
-		    alert("Data could not be saved." + error);
-		  } else {
-		    alert("Data saved successfully.");
-		  }
-		}
-
-    </script>
   </body>
 </html>

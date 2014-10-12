@@ -18,21 +18,3 @@ $(document).ready(function(){
 	})
 })
 
-
-$(document).ready(function(){
-	$('#words').click(function(){
-		alert("cool")
-	})
-})
-
-$(document).ready(function(){
-	$('#phrases').click(function(){
-		alert("cool")
-	})
-})
-
-$(document).ready(function(){
-	$('#idioms').click(function(){
-		alert("cool")
-	})
-})
