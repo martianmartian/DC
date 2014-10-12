@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     $('.words').click(function(){
-        //console.log("???");
+        console.log("???");
         $(this).addClass('selected wds');
     })
 });
@@ -19,8 +19,6 @@ $(document).ready(function(){
 		$(this).addClass('selected idm');
 	})
 });
-
-
 
 
 /*

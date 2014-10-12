@@ -65,7 +65,7 @@ var load_table=function(loadAll){
     table += '</table>';
     document.getElementById('tableDiv').innerHTML = table;
     slct();
-    push_fire_lesson();
+    push_fire_lession();
 };
 
 
@@ -87,7 +87,7 @@ var slct=function(){
 };
 
 
-var push_fire_lesson=function(){
+var push_fire_lession=function(){
 
     var boss=new Firebase('https://pracenglish.firebaseio.com/')
 
