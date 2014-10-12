@@ -1,6 +1,4 @@
 
-var slct=function(){
-
 
 $(document).ready(function(){
     $('.words').click(function(){
@@ -23,5 +21,3 @@ $(document).ready(function(){
 });
 
 
-
-};
