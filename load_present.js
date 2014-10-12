@@ -1,5 +1,5 @@
 
-var bank=new Firebase('https://pracenglish.firebaseio.com/selected')
+var bank=new Firebase('https://pracenglish.firebaseio.com/selected');
 
 
 $(document).ready(function(){
@@ -12,8 +12,9 @@ $(document).ready(function(){
           load_table(loadAll)
 
 	  	})
+
 	})
-})
+});
 
 
 var load_all=function(bnk){
@@ -31,25 +32,59 @@ var load_all=function(bnk){
         a+=1;
     }
     return loadAll;
-}
+};
 
 
 var load_table=function(loadAll){
     var table = '<table>';
 
+    table +='<tr>'+
+        '<th>Words</th>'+
+        '<th>Phrases</th>'+
+        '<th>Idioms</th>'+
+        '</tr>';
+    
     for(var j in loadAll[0]){
         table += '<tr>'+
-        '<th>'+loadAll[0][j]+'</th>'+
-        '<th>'+loadAll[1][j]+'</th>'+
-        '<th>'+loadAll[2][j]+'</th>'+
+        '<td class="words">'+loadAll[0][j]+'</td>'+
+        '<td class="phrases">'+loadAll[1][j]+'</td>'+
+        '<td class="idioms">'+loadAll[2][j]+'</td>'+
         '</tr>';
     }
+
+    table +=
+        '<tr>'+'<td colspan="">'+
+        '<input id="words" type="button" value="select">'+
+        '</td>'+
+        '<td colspan="">'+
+        '<input id="phrases" type="button" value="select">'+
+        '</td>'+
+        '<td colspan="">'+
+        '<input id="idioms" type="button" value="select">'+
+        '</td>'+'</tr>';
     table += '</table>';
     document.getElementById('tableDiv').innerHTML = table;
-
+    slct();
 };
 
 
+var slct=function(){
 
+    $('.words').click(function(){
+        console.log("???");
+        $(this).addClass('selected wds');
+    })
+
+    $('.phrases').click(function(){
+        $(this).addClass('selected phrs');
+    })
+
+    $('.idioms').click(function(){
+        $(this).addClass('selected idm');
+    })
+
+
+
+};
 
 
