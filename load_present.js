@@ -7,7 +7,9 @@ $(document).ready(function(){
 		bank.on('value', function (snapshot) {
 		  var bnk = snapshot.val();
 		  //console.log(bnk)
-		  load_all(bnk)
+		  var loadAll=load_all(bnk);
+          //console.log(loadAll)
+          load_table(loadAll)
 
 	  	})
 	})
@@ -15,39 +17,34 @@ $(document).ready(function(){
 
 
 var load_all=function(bnk){
-	
-	  for (var i in bnk){
-  		console.log("i is "+i);
-	  	switch(i) {
-	  		case "idioms":
-                load_words(bnk[i]);
-	  			break;
-	  		case "phrases":
-                load_words(bnk[i]);
-	  			break;
-	  		case "words":
-                load_words(bnk[i]);
-	  			break;
-	  		default:
-	  			alert("no match")
-	  	}
-  	}
 
+    var loadAll=[[],[],[]];
+    var a=0;
+	for (var i in bnk){
+  		//console.log("i is "+i);
+        var b=0;
+          for (var j in bnk[i]){
+              loadAll[a][b]=bnk[i][j];
+              b+=1;
+          }
+        //console.log("watch this");
+        a+=1;
+    }
+    return loadAll;
 }
 
 
-var load_words=function(bnk){
+var load_table=function(loadAll){
     var table = '<table>';
 
-    for(var j in bnk){
+    for(var j in loadAll[0]){
         table += '<tr>'+
-        '<th>'+bnk[j]+'</th>'+
-        '<th>'+"Phrases"+'</th>'+
-        '<th>'+"Idioms"+'</th>'+
+        '<th>'+loadAll[0][j]+'</th>'+
+        '<th>'+loadAll[1][j]+'</th>'+
+        '<th>'+loadAll[2][j]+'</th>'+
         '</tr>';
     }
     table += '</table>';
-
     document.getElementById('tableDiv').innerHTML = table;
 
 };
@@ -56,24 +53,3 @@ var load_words=function(bnk){
 
 
 
-/*
-
-var bank_idioms=new Firebase('https://pracenglish.firebaseio.com/selected/idioms')
-
-
-$(document).ready(function(){
-	bank_idioms.on('value', function (snapshot) {
-	  var bnk_idm = snapshot.val();
-	  ////// value of snapshot is still an object, bnk_idm
-	  //////so use a loop to get the values of the object
-	  for (var i in bnk_idm){
-	  		//console.log(bnk_idm[i]);
-	  		
-	  }
-	  //////console.log(bnk_idm)
-	  //////console.log(snapshot.val());
-	});
-})
-
-
-*/
