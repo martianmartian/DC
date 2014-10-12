@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+
+
+	<style>
+		thead {color:green;}
+		tbody {color:blue;}
+		tfoot {color:red;}
+		table, th, td {
+		    border: 1px solid black;
+		}
+	</style>
+
+
+  </head>
+  <body>
+
+    <div id="content"><video id="video" autoplay style="display: none" > </video> Loading...</div>
+
+
+
+
+    <div id='messagesDiv'></div>
+
+
+
+
+
+	<input id="words" type="text" placeholder="any words?">
+	<input id="phrases" type="text" placeholder="any phrases?">
+<br>
+	<input id="words_submit" type="button" value="submit">
+	<input id="phrases_submit" type="button" value="submit">
+
+	<script type="text/javascript">
+		var baseTest=new Firebase('https://nodelearn.firebaseio.com/')
+		time=Date();
+		$(document).ready(baseTest.push("login time: " +time ))
+	</script>
+
+
+
+    <script>
+      var baseWords = new Firebase('https://nodelearn.firebaseio.com/words');
+	  var basePhrases = new Firebase('https://nodelearn.firebaseio.com/phrases');
+
+
+      $('#words_submit').click(function(){
+      		var words = $('#words').val();
+      		baseWords.push({words:words});
+      		$('#words').val('');
+      })
+
+	  $('#phrases_submit').click(function(){
+	      	var phrases = $('#phrases').val();
+      		basePhrases.push({phrases:phrases});
+      		$('#phrases').val('');
+	   })
+
+
+
+
+      baseWords.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+		//displayChatMessage(message.words);
+		
+      });
+
+      basePhrases.on('child_added', function(snapshot) {
+        var message = snapshot.val();
+		//displayChatMessage(message.phrases);
+		
+      });
+
+/*
+      function displayChatMessage(words) {
+        $('<div/>').text(words).prepend($('<em/>').text(words+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+
+      function displayChatMessage(phrases) {
+        $('<div/>').text(phrases).prepend($('<em/>').text(phrases+': ')).appendTo($('#messagesDiv'));
+
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      };
+*/
+
+    </script>
+  </body>
+</html>

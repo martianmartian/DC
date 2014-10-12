@@ -21,3 +21,28 @@ $(document).ready(function(){
 });
 
 
+/*
+
+var slct=function(){
+
+    $('.words').click(function(){
+        console.log("???");
+        $(this).addClass('selected wds');
+    });
+
+    $('.phrases').click(function(){
+        $(this).addClass('selected phrs');
+    });
+
+    $('.idioms').click(function(){
+        $(this).addClass('selected idm');
+    })
+
+};
+
+
+slct();
+
+$(document).ready(slct());
+
+*/

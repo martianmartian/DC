@@ -65,6 +65,7 @@ var load_table=function(loadAll){
     table += '</table>';
     document.getElementById('tableDiv').innerHTML = table;
     slct();
+    push_fire_lession();
 };
 
 
@@ -83,8 +84,36 @@ var slct=function(){
         $(this).addClass('selected idm');
     })
 
-
-
 };
 
+
+var push_fire_lession=function(){
+
+    var boss=new Firebase('https://pracenglish.firebaseio.com/')
+
+    $('#words').click(function(){
+        var currentFire=boss.child("lesson").child("words")
+        $('.wds').each(function(){
+            var content=$(this).html()
+            currentFire.push(content)
+        })
+    })
+
+    $('#phrases').click(function(){
+        var currentFire=boss.child("lesson").child("phrases")
+        $('.phrs').each(function(){
+            var content=$(this).html()
+            currentFire.push(content)
+        })
+    })
+
+    $('#idioms').click(function(){
+        var currentFire=boss.child("lesson").child("idioms")
+        $('.idm').each(function(){
+            var content=$(this).html()
+            currentFire.push(content)
+        })
+    })
+
+};
 

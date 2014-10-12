@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style>
+		thead {color:green;}
+		tbody {color:blue;}
+		tfoot {color:red;}
+		table, th, td {
+		    border: 1px solid black;
+		}
+	</style>
+
+
+    <script src="https://cdn.firebase.com/js/client/1.1.0/firebase.js"></script>
+
+
+    <script type="text/javascript">
+    	var Firebase=require("firebase");
+    	var myFirebaseRef = new Firebase("https://nodelearn.firebaseio.com/");
+
+    </script>              
+</head>
+<body>
+
+        <div id="content"><video id="video" autoplay style="display: none" > </video> Loading...</div>
+  
+	<input id="W_input" type="text">
+	<input id="W_submit" type="button" value="submit word">
+<br>
+	<input id="P_input" type="text">
+	<input id="P_submit" onclick="setP()"  type="button" value="submit phrase">
+	
+
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Words</th>
+	      
+	    </tr>
+	  </thead>
+	  <tfoot>
+	    <tr>
+	      <td id="W_one"></td>
+	      
+	    </tr>
+	  </tfoot>
+	  <tbody>
+	    <tr>
+	      <td id="W_two"></td>
+	      
+	    </tr>
+	    <tr>
+	      <td id="W_three"></td>
+	      
+	    </tr>
+	  </tbody>
+	</table>
+	<table>
+	  <thead>
+	    <tr>
+	      <th>Phrase</th>
+	      
+	    </tr>
+	  </thead>
+	  <tfoot>
+	    <tr>
+	      <td id="P_one"></td>
+	      
+	    </tr>
+	  </tfoot>
+	  <tbody>
+	    <tr>
+	      <td id="P_two"></td>
+	      
+	    </tr>
+	    <tr>
+	      <td id="P_three"></td>
+	      
+	    </tr>
+	  </tbody>
+	</table>
+<script type="text/javascript" src="js/fbserving.js"></script>
+<script type="text/javascript" src="js/videostream.js"></script>
+</body>
+</html>
